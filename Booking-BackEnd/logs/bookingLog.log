@@ -1,0 +1,9 @@
+2024-10-21 20:03:56 INFO  BookingController:15 - test
+[lk.ticket.controller.BookingController.test(BookingController.java:15)evel] 2024-10-21 20:06:15.085 [http-nio-8080-exec-2] BookingController - testsg
+2024-10-21 20:07:36 INFO  BookingController:15 - test
+2024-10-21 20:13:26 INFO  lk.ticket.controller.BookingController.test:15 - test
+2024-10-21 20:15:20.15 INFO  BookingController - test - test
+2024-10-21 20:18:54.257.15 INFO   --- [http-nio-8080-exec-1] BookingController - test
+2024-10-21 20:21:31.633 INFO   15 --- BookingController -- test - test
+2024-10-21 20:23:10.913  INFO   15 --- [BookingController] -- test - test
+2024-10-21 20:25:06.185  INFO   15 --- [BookingController] -- test : test
