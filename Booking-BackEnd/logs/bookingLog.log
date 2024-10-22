@@ -7,3 +7,16 @@
 2024-10-21 20:21:31.633 INFO   15 --- BookingController -- test - test
 2024-10-21 20:23:10.913  INFO   15 --- [BookingController] -- test - test
 2024-10-21 20:25:06.185  INFO   15 --- [BookingController] -- test : test
+2024-10-21 20:33:23.689  INFO   15 --- [BookingController] -- test : test
+2024-10-22 20:27:25.685  INFO   15 --- [ConfigurationController] -- test : Test Configuration
+2024-10-22 21:36:29.229  INFO   24 --- [ConfigurationController] -- SubmitConfiguration : Configuration[Total Number of Tickets - 10, Ticket Release Rate10, Customer Retrieval Rate10, Maximum Ticket Capacity10]
+2024-10-22 21:36:46.560  INFO   24 --- [ConfigurationController] -- SubmitConfiguration : Configuration[Total Number of Tickets - 10, Ticket Release Rate10, Customer Retrieval Rate10, Maximum Ticket Capacity10]
+2024-10-22 21:47:45.248  INFO   29 --- [ConfigurationController] -- SubmitConfiguration : Configuration[Total Number of Tickets - 10, Ticket Release Rate10, Customer Retrieval Rate10, Maximum Ticket Capacity10]
+2024-10-22 22:51:13.458  INFO   30 --- [ConfigurationController] -- SubmitConfiguration : Configuration[Total Number of Tickets - 10, Ticket Release Rate - 10, Customer Retrieval Rate - 10, Maximum Ticket Capacity - 10]
+2024-10-22 22:51:31.351  INFO   25 --- [ConfigurationServiceImp] -- SubmitConfiguration : Inside the SubmitConfiguration method in ConfigurationServiceImp
+2024-10-22 22:51:52.872  INFO   18 --- [ConfigurationRepository] -- SubmitConfiguration : Configuration[Total Number of Tickets - 10, Ticket Release Rate - 10, Customer Retrieval Rate - 10, Maximum Ticket Capacity - 10], User - Admin, created date - 2024-10-22
+2024-10-22 22:52:07.220  INFO   19 --- [ConfigurationRepository] -- SubmitConfiguration : Inside the SubmitConfiguration method in ConfigurationRepository
+2024-10-22 22:52:38.654  INFO   104 --- [ConnectionManager] -- commit : Commit success
+2024-10-22 22:52:49.197  INFO   38 --- [ConfigurationRepository] -- SubmitConfiguration : Insert Data into configuration table Success
+2024-10-22 22:52:55.815  INFO   44 --- [ConnectionManager] -- close : Connection close success
+2024-10-22 22:52:58.496  INFO   59 --- [ConnectionManager] -- close : PreparedStatement close success

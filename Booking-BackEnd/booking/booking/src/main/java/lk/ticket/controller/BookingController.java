@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookingController {
 
     private static final Logger logger = Logger.getLogger(BookingController.class);
+
     @GetMapping("/test")
     public String test() {
         logger.info("test");
