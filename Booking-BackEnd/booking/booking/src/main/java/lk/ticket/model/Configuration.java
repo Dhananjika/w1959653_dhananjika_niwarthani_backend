@@ -11,7 +11,6 @@ public class Configuration {
         return "Configuration[Total Number of Tickets - " + totalTickets + ", Ticket Release Rate - " + ticketReleaseRate + ", Customer Retrieval Rate - " + customerRetrievalRate + ", Maximum Ticket Capacity - " + maxTicketCapacity + "]" ;
     }
 
-    public
     public int getTotalTickets() {
         return totalTickets;
     }

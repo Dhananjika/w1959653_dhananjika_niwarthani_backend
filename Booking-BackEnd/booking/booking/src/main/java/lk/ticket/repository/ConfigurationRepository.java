@@ -45,9 +45,11 @@ public class ConfigurationRepository {
             logger.info("Insert Data into configuration table " + result);
         }catch (SQLException e) {
             ConnectionManager.rollback(con);
+            logger.error("An SQLException occurred while inserting data into configuration table" + e.getMessage());
             e.printStackTrace();
             return "Unsuccessful";
         }catch (Exception e) {
+            logger.error("An Exception occurred while inserting data into configuration table" + e.getMessage());
             e.printStackTrace();
             return "Unsuccessful";
         }finally {

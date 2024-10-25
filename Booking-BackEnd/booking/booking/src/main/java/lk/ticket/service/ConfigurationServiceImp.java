@@ -1,19 +1,22 @@
 package lk.ticket.service;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import lk.ticket.model.Configuration;
 import lk.ticket.repository.ConfigurationRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.time.LocalDate;
 
 @Service
 public class ConfigurationServiceImp implements ConfigarationService{
     private static final Logger logger = Logger.getLogger(ConfigurationServiceImp.class);
-    private Gson gson = new Gson();
+    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     private final ConfigurationRepository configurationRepository;
 
@@ -34,7 +37,8 @@ public class ConfigurationServiceImp implements ConfigarationService{
     public String submitConfiguration(Configuration configuration, String user){
         logger.info("Method called");
         LocalDate localDate = LocalDate.now();
-        return configurationRepository.submitConfiguration(configuration, user, localDate.toString());
+//        String result = configurationRepository.submitConfiguration(configuration, user, localDate.toString());
+        return saveJsonFile(configuration);
     }
 
     /**
@@ -44,13 +48,46 @@ public class ConfigurationServiceImp implements ConfigarationService{
      *  @throws Exception
      *  @out jsonFile
      * */
-    public void saveJsonFile(Configuration configuration){
+    @Override
+    public String saveJsonFile(Configuration configuration){
         try {
-            String pathToJsonFile = "src/json/configuration.json";
+            logger.info("Method called");
+            String pathToJsonFile = new File("booking/booking/src/json/configuration.json").getAbsolutePath();
             FileWriter fileWriter = new FileWriter(pathToJsonFile);
-            gson.toJson(fileWriter);
+            gson.toJson(configuration, fileWriter);
+            fileWriter.flush();
+            fileWriter.close();
+            logger.info("Details saved to configuration.json file");
+            return "Successful";
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            logger.error("An error occurred while saving json file" + e.getMessage());
+            e.printStackTrace();
+            return "Unsuccessful";
         }
     }
+
+    /**
+     *  This method is used to read the configuration details from json file
+     *
+     *  @in  json File
+     *  @throws Exception
+     *  @out Details in json format
+     * */
+    @Override
+    public Configuration readJsonFile(){
+        logger.info("Method called");
+        Configuration configuration;
+        try {
+            FileReader fileReader = new FileReader(new File("booking/booking/src/json/configuration.json").getAbsolutePath());
+            configuration = gson.fromJson(fileReader, Configuration.class);
+            logger.info("Details read from configuration.json file");
+            logger.info(configuration);
+        }catch (Exception e){
+            logger.error("An error occurred while reading json file" + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+        return configuration;
+    }
+
 }
